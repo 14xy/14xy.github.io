@@ -285,13 +285,16 @@
     .page, nav { position: relative; z-index: 1; }
 
     /* Copy feedback */
+    .contact-list a { position: relative; }
     .copy-confirm {
+      position: absolute;
+      left: calc(100% + 10px);
+      top: 0;
       font-size: 11px;
       color: var(--accent);
-      margin-left: 8px;
       opacity: 0;
       transition: opacity .2s;
-      vertical-align: middle;
+      white-space: nowrap;
     }
     .copy-confirm.show { opacity: 1; }
 
@@ -337,7 +340,7 @@
             Before that, I was diving deep into blockchain data at Nansen.
           </p>
           <p>
-            Outside of work, I enjoy crocheting, watching football, and finding new ways to move.
+            Outside of work: I enjoy crocheting, watching football, and finding new ways to move.
           </p>
         </div>
         <div class="now-row">
