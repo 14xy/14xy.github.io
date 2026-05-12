@@ -97,8 +97,8 @@
       margin-bottom: 40px;
     }
     .about-photo {
-      width: 96px;
-      height: 96px;
+      width: 148px;
+      height: 148px;
       border-radius: 50%;
       object-fit: cover;
       flex-shrink: 0;
@@ -270,15 +270,41 @@
       color: var(--text-dim);
     }
 
+    /* Cursor glow */
+    #cursor-glow {
+      position: fixed;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200, 112, 90, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: left .15s ease, top .15s ease;
+      z-index: 0;
+    }
+    .page, nav { position: relative; z-index: 1; }
+
+    /* Copy feedback */
+    .copy-confirm {
+      font-size: 11px;
+      color: var(--accent);
+      margin-left: 8px;
+      opacity: 0;
+      transition: opacity .2s;
+      vertical-align: middle;
+    }
+    .copy-confirm.show { opacity: 1; }
+
     @media (max-width: 520px) {
       nav { flex-direction: column; gap: 16px; }
       .about-header { flex-direction: column-reverse; gap: 20px; }
-      .about-photo { width: 72px; height: 72px; }
+      .about-photo { width: 100px; height: 100px; }
       .work-item { grid-template-columns: 1fr; gap: 4px; }
     }
   </style>
 </head>
 <body>
+  <div id="cursor-glow"></div>
   <div class="page">
 
     <nav>
@@ -425,6 +451,51 @@
     });
 
     navigate(location.hash || '#about');
+
+    // Cursor glow
+    var glow = document.getElementById('cursor-glow');
+    document.addEventListener('mousemove', function(e) {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+
+    // Letter scramble on name hover
+    var CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    function scramble(el) {
+      var original = el.textContent;
+      var progress = 0;
+      var interval = setInterval(function() {
+        el.textContent = original.split('').map(function(char, i) {
+          if (char === ' ') return ' ';
+          if (i < progress) return original[i];
+          return CHARS[Math.floor(Math.random() * CHARS.length)];
+        }).join('');
+        progress += 0.5;
+        if (progress >= original.length) {
+          el.textContent = original;
+          clearInterval(interval);
+        }
+      }, 38);
+    }
+    document.querySelector('.name').addEventListener('mouseenter', function() {
+      scramble(this);
+    });
+
+    // Click-to-copy email
+    var emailLink = document.querySelector('a[href^="mailto:"]');
+    if (emailLink) {
+      var confirm = document.createElement('span');
+      confirm.className = 'copy-confirm';
+      confirm.textContent = 'Copied!';
+      emailLink.parentNode.insertBefore(confirm, emailLink.nextSibling);
+      emailLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        navigator.clipboard.writeText('limxinyii14@gmail.com').then(function() {
+          confirm.classList.add('show');
+          setTimeout(function() { confirm.classList.remove('show'); }, 1800);
+        });
+      });
+    }
 
     document.querySelectorAll('.tag-filter').forEach(function(btn) {
       btn.addEventListener('click', function() {
