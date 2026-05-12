@@ -11,10 +11,12 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #111;
-      --text: #999;
-      --text-bright: #e5e5e5;
-      --text-dim: #555;
+      --bg: #0e0d0b;
+      --text: #8a8a8a;
+      --text-bright: #e8e6e3;
+      --text-dim: #4a4a4a;
+      --accent: #c8705a;
+      --accent-dim: rgba(200, 112, 90, 0.12);
       --serif: 'Newsreader', Georgia, serif;
       --sans: 'Inter', system-ui, -apple-system, sans-serif;
     }
@@ -30,7 +32,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    ::selection { background: #333; color: var(--text-bright); }
+    ::selection { background: var(--accent-dim); color: var(--text-bright); }
 
     a {
       color: var(--text);
@@ -38,7 +40,7 @@
       border-bottom: 1px solid var(--text-dim);
       transition: color .2s, border-color .2s;
     }
-    a:hover { color: var(--text-bright); border-color: var(--text-bright); }
+    a:hover { color: var(--accent); border-color: var(--accent); }
 
     .page {
       max-width: 620px;
@@ -58,8 +60,9 @@
       color: var(--text-bright);
       letter-spacing: -0.01em;
       border: none;
+      transition: color .2s;
     }
-    .name:hover { color: #fff; }
+    .name:hover { color: var(--accent); }
     .nav-links { display: flex; gap: 24px; }
     .nav-links a {
       font-size: 13px;
@@ -68,10 +71,10 @@
       transition: color .2s;
     }
     .nav-links a:hover { color: var(--text); }
-    .nav-links a.active { color: var(--text-bright); }
+    .nav-links a.active { color: var(--accent); }
 
     .content {
-      padding: 100px 0 80px;
+      padding: 88px 0 80px;
       min-height: calc(100vh - 160px);
     }
 
@@ -81,22 +84,41 @@
       animation: fadeUp .4s ease both;
     }
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
+      from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* About */
+    .about-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    .about-photo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      opacity: 0.85;
+      filter: grayscale(15%);
+      transition: opacity .3s, filter .3s;
+    }
+    .about-photo:hover { opacity: 1; filter: grayscale(0%); }
 
     .about-intro {
       font-family: var(--serif);
       font-weight: 400;
-      font-size: clamp(28px, 4.5vw, 38px);
+      font-size: clamp(26px, 4.5vw, 36px);
       color: var(--text-bright);
-      line-height: 1.35;
+      line-height: 1.32;
       letter-spacing: -0.02em;
-      margin-bottom: 40px;
     }
     .about-intro em {
       font-style: italic;
-      color: var(--text);
+      color: var(--accent);
     }
     .about-body {
       font-size: 15px;
@@ -106,32 +128,65 @@
     .about-body p { margin-bottom: 20px; }
     .about-body p:last-child { margin-bottom: 0; }
 
+    .now-row {
+      margin-top: 44px;
+      padding-top: 28px;
+      border-top: 1px solid #1a1a18;
+    }
+    .now-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+    }
+    .now-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      animation: pulse 2.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.25; }
+    }
+    .now-text {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* Writings */
     .tag-filters {
       display: flex;
-      gap: 12px;
+      gap: 8px;
       margin-bottom: 32px;
       flex-wrap: wrap;
     }
     .tag-filter {
       font-size: 12px;
       color: var(--text-dim);
-      border: none;
       background: none;
       cursor: pointer;
       padding: 4px 12px;
       border-radius: 999px;
-      border: 1px solid #1a1a1a;
+      border: 1px solid #1e1e1c;
       font-family: var(--sans);
-      transition: color .2s, border-color .2s;
+      transition: color .2s, border-color .2s, background .2s;
     }
     .tag-filter:hover { color: var(--text); border-color: #333; }
-    .tag-filter.active { color: var(--text-bright); border-color: var(--text-bright); }
+    .tag-filter.active { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); }
 
     .writing-item {
       padding: 28px 0;
-      border-top: 1px solid #1a1a1a;
+      border-top: 1px solid #1a1a18;
     }
-    .writing-item:last-child { border-bottom: 1px solid #1a1a1a; }
+    .writing-item:last-child { border-bottom: 1px solid #1a1a18; }
     .writing-item.hidden { display: none; }
     .writing-item a { border: none; display: block; }
     .writing-title {
@@ -140,7 +195,7 @@
       margin-bottom: 4px;
       transition: color .2s;
     }
-    .writing-item a:hover .writing-title { color: #fff; }
+    .writing-item a:hover .writing-title { color: var(--accent); }
     .writing-meta {
       font-size: 13px;
       color: var(--text-dim);
@@ -152,19 +207,22 @@
       margin-left: 8px;
     }
 
+    /* Work */
     .work-item {
       padding: 24px 0;
-      border-top: 1px solid #1a1a1a;
+      border-top: 1px solid #1a1a18;
       display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: 24px;
+      grid-template-columns: 68px 1fr;
+      gap: 20px;
       align-items: baseline;
     }
-    .work-item:last-child { border-bottom: 1px solid #1a1a1a; }
+    .work-item:last-child { border-bottom: 1px solid #1a1a18; }
     .work-year {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-dim);
       font-variant-numeric: tabular-nums;
+      padding-top: 2px;
+      line-height: 1.6;
     }
     .work-name {
       font-size: 15px;
@@ -172,13 +230,15 @@
       transition: color .2s;
     }
     .work-item a { border: none; }
-    .work-item a:hover .work-name { color: #fff; }
+    .work-item a:hover .work-name { color: var(--accent); }
     .work-desc {
       font-size: 13px;
       color: var(--text);
-      margin-top: 2px;
+      margin-top: 3px;
+      line-height: 1.65;
     }
 
+    /* Contact */
     .contact-intro {
       font-size: 15px;
       line-height: 1.85;
@@ -195,7 +255,6 @@
       color: var(--text);
       width: fit-content;
     }
-    .contact-list a:hover { color: var(--text-bright); }
 
     .section-label {
       font-size: 11px;
@@ -213,6 +272,8 @@
 
     @media (max-width: 520px) {
       nav { flex-direction: column; gap: 16px; }
+      .about-header { flex-direction: column-reverse; gap: 20px; }
+      .about-photo { width: 72px; height: 72px; }
       .work-item { grid-template-columns: 1fr; gap: 4px; }
     }
   </style>
@@ -233,23 +294,32 @@
     <div class="content">
 
       <div id="about" class="subpage">
-        <img src="profile.jpg" alt="Xin Yi Lim" style="width: 350px; height: 350px; border-radius: 50%; object-fit: cover; margin-bottom: 32px; opacity: 0.9; display: block; margin-left: auto; margin-right: auto;" />
-        <p class="about-intro">
-          I'm Xin Yi &mdash;<br>
-          I <em>write, build,</em><br>
-          and figure things out.
-        </p>
+        <div class="about-header">
+          <p class="about-intro">
+            I'm Xin Yi &mdash;<br>
+            I <em>write, build,</em><br>
+            and figure things out.
+          </p>
+          <img src="profile.jpg" alt="Xin Yi Lim" class="about-photo" />
+        </div>
         <div class="about-body">
           <p>
-            Innately curious about emerging technologies and how it impacts human behaviour. I like trying my hand at things to learn how stuff works.
+            Innately curious about emerging technologies and how they reshape human behaviour. I like getting my hands dirty to understand how things actually work.
           </p>
           <p>
-            Right now I'm finding great teams to back within crypto, with a key focus on DeFi and trading.
-            Before that I was digging deep into blockchain data.
+            Right now I'm finding exceptional teams to back in crypto, with a focus on DeFi and trading infrastructure.
+            Before that, I was deep in blockchain data at Nansen.
           </p>
           <p>
-            Outside of that, I enjoy crocheting / watching football / finding new ways to move.
+            Outside of work: crocheting, football, and finding new ways to move.
           </p>
+        </div>
+        <div class="now-row">
+          <div class="now-label">
+            <span class="now-dot"></span>
+            Currently thinking about
+          </div>
+          <p class="now-text">Agentic systems and what it actually takes to make them useful outside of demos.</p>
         </div>
       </div>
 
@@ -282,7 +352,7 @@
         <div class="section-label">Selected work</div>
 
         <div class="work-item">
-          <span class="work-year">2023 &mdash; Present</span>
+          <span class="work-year">2023 &mdash; Now</span>
           <div>
             <div class="work-name">DWF Ventures</div>
             <div class="work-desc">Researching and investing into top teams building with crypto</div>
@@ -293,7 +363,7 @@
           <span class="work-year">2025 &ndash; 26</span>
           <div>
             <div class="work-name">Falcon Finance</div>
-            <div class="work-desc">Growing on-chain liquidity for USDf, top 10 stablecoin by market capitalisation on-chain</div>
+            <div class="work-desc">Growing on-chain liquidity for USDf, top 10 stablecoin by market cap</div>
           </div>
         </div>
 
@@ -301,7 +371,7 @@
           <span class="work-year">2022 &ndash; 23</span>
           <div>
             <div class="work-name">Nansen</div>
-            <div class="work-desc">Building blockchain data dashboards and surfacing on-chain insights through research reports</div>
+            <div class="work-desc">Building blockchain data dashboards and surfacing on-chain insights through research</div>
           </div>
         </div>
       </div>
@@ -309,7 +379,7 @@
       <div id="contact" class="subpage">
         <div class="section-label">Say hi</div>
         <p class="contact-intro">
-          I'm always open to chat about anything - the weather, your favourite books, your bags (shill me!)
+          Always open to chat &mdash; about the weather, your favourite books, or your bags (shill me!).
         </p>
         <div class="contact-list">
           <a href="mailto:limxinyii14@gmail.com">Email</a>
