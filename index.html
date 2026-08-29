@@ -237,6 +237,45 @@
       margin-top: 3px;
       line-height: 1.65;
     }
+    .work-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .work-links a {
+      font-size: 12px;
+      color: var(--accent);
+      border-bottom: none;
+      transition: opacity .2s;
+    }
+    .work-links a:hover { opacity: 0.7; }
+    .project-item {
+      margin-bottom: 32px;
+    }
+    .project-item a { border: none; display: block; }
+    .project-preview {
+      display: block;
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid #1e1e1c;
+      opacity: 0.65;
+      transition: opacity .3s;
+      margin-bottom: 12px;
+    }
+    .project-item a:hover .project-preview { opacity: 1; }
+    .project-name {
+      font-size: 14px;
+      color: var(--text-bright);
+      margin-bottom: 4px;
+      transition: color .2s;
+    }
+    .project-item a:hover .project-name { color: var(--accent); }
+    .project-desc {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.65;
+    }
 
     /* Contact */
     .contact-intro {
@@ -435,8 +474,37 @@
         <div class="tag-filters">
           <button class="tag-filter active" data-tag="all">All</button>
           <button class="tag-filter" data-tag="crypto">Crypto</button>
+          <button class="tag-filter" data-tag="equities">Equities</button>
           <button class="tag-filter" data-tag="ai">AI</button>
           <button class="tag-filter" data-tag="musings">Musings</button>
+        </div>
+
+        <div class="writing-item" data-tags="crypto">
+          <a href="writings/the-thesis-on-social-trading.html">
+            <div class="writing-title">The Thesis on Social Trading <span class="writing-tag">crypto</span></div>
+            <div class="writing-meta">August 2026</div>
+          </a>
+        </div>
+
+        <div class="writing-item" data-tags="crypto equities">
+          <a href="writings/rwa-perpetuals-from-thesis-to-traction.html">
+            <div class="writing-title">RWA Perpetuals: From Thesis to Traction <span class="writing-tag">crypto &middot; equities</span></div>
+            <div class="writing-meta">July 2026</div>
+          </a>
+        </div>
+
+        <div class="writing-item" data-tags="crypto">
+          <a href="writings/tokenization-who-captures-value.html">
+            <div class="writing-title">Tokenization: Who Actually Captures Value? <span class="writing-tag">crypto</span></div>
+            <div class="writing-meta">June 2026</div>
+          </a>
+        </div>
+
+        <div class="writing-item" data-tags="crypto equities">
+          <a href="writings/the-pre-ipo-gold-rush.html">
+            <div class="writing-title">The Pre-IPO Gold Rush <span class="writing-tag">crypto &middot; equities</span></div>
+            <div class="writing-meta">May 2026</div>
+          </a>
         </div>
 
         <div class="writing-item" data-tags="crypto ai">
@@ -453,9 +521,9 @@
           </a>
         </div>
 
-        <div class="writing-item" data-tags="crypto">
+        <div class="writing-item" data-tags="crypto equities">
           <a href="writings/tokens-vs-equities.html">
-            <div class="writing-title">Tokens vs. Equities: The Valuation Gap <span class="writing-tag">crypto</span></div>
+            <div class="writing-title">Tokens vs. Equities: The Valuation Gap <span class="writing-tag">crypto &middot; equities</span></div>
             <div class="writing-meta">February 2026</div>
           </a>
         </div>
@@ -469,6 +537,7 @@
           <div>
             <div class="work-name">DWF Ventures</div>
             <div class="work-desc">Researching and investing into top teams building with crypto</div>
+
           </div>
         </div>
 
@@ -485,6 +554,17 @@
           <div>
             <div class="work-name">Nansen</div>
             <div class="work-desc">Building blockchain data dashboards and surfacing on-chain insights through research</div>
+          </div>
+        </div>
+
+        <div class="projects-section">
+          <div class="section-label" style="margin-top: 48px;">Projects</div>
+          <div class="project-item">
+            <a href="https://dune.com/dwfventures/ton-metrics" target="_blank" rel="noopener">
+              <img src="ton-dashboard.png" alt="TON Blockchain Dashboard" class="project-preview" />
+              <div class="project-name">TON Blockchain Dashboard</div>
+            </a>
+            <div class="project-desc">On-chain metrics for the TON ecosystem — TVL, token price, DeFi and stablecoin activity.</div>
           </div>
         </div>
       </div>

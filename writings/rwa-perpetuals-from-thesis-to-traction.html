@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RWA Perpetuals: From Thesis to Traction — Xinyi Lim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Newsreader:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #111;
+      --text: #999;
+      --text-bright: #e5e5e5;
+      --text-dim: #555;
+      --serif: 'Newsreader', Georgia, serif;
+      --sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: #333; color: var(--text-bright); }
+
+    a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--text-dim);
+      transition: color .2s, border-color .2s;
+    }
+    a:hover { color: var(--text-bright); border-color: var(--text-bright); }
+
+    .page {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      padding: 48px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-bright);
+      letter-spacing: -0.01em;
+      border: none;
+    }
+    .name:hover { color: #fff; }
+    .back {
+      font-size: 13px;
+      color: var(--text-dim);
+      border: none;
+    }
+    .back:hover { color: var(--text); }
+
+    .article {
+      padding: 80px 0 64px;
+    }
+    .article-title {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(28px, 4.5vw, 36px);
+      color: var(--text-bright);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .article-meta {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 48px;
+    }
+
+    .article-body h2 {
+      font-family: var(--sans);
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text-bright);
+      margin: 48px 0 16px;
+    }
+    .article-body h3 {
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-bright);
+      margin: 32px 0 12px;
+    }
+    .article-body p {
+      font-size: 15px;
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .article-body ul {
+      margin: 0 0 20px 20px;
+      font-size: 15px;
+      line-height: 1.85;
+    }
+    .article-body li {
+      margin-bottom: 12px;
+    }
+    .article-body img {
+      width: 100%;
+      border-radius: 6px;
+      margin: 32px 0;
+      border: 1px solid #1a1a1a;
+    }
+    .article-body .caption {
+      font-size: 12px;
+      color: var(--text-dim);
+      text-align: center;
+      margin: -20px 0 32px;
+    }
+    .article-body .takeaway {
+      border-left: 2px solid #2a2a2a;
+      padding: 16px 0 16px 20px;
+      margin: 32px 0;
+    }
+    .article-body .takeaway p {
+      margin-bottom: 8px;
+    }
+    .article-body .takeaway p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer {
+      padding: 48px 0;
+      font-size: 12px;
+      color: var(--text-dim);
+      border-top: 1px solid #1a1a1a;
+    }
+
+    .fade {
+      opacity: 0; transform: translateY(12px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade.in { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 520px) {
+      nav { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <nav>
+      <a href="../index.html" class="name">Xinyi Lim</a>
+      <a href="../index.html#writings" class="back">&larr; Back to writings</a>
+    </nav>
+
+    <article class="article fade">
+      <h1 class="article-title">RWA Perpetuals: From Thesis to Traction</h1>
+      <div class="article-meta">July 2026</div>
+
+      <div class="article-body">
+
+        <div class="takeaway">
+          <p><strong style="color: var(--text-bright);">Key Takeaways:</strong></p>
+          <p>On-chain RWA share of daily perp volume doubled in four months to a 37% peak in July 2026.</p>
+          <p>Two proven use cases for RWA perpetuals on-chain: weekend exposure and pre-IPO price discovery. On-chain venues are also proving to have much stickier capital with wider and quicker access to these assets.</p>
+          <p>As frontends proliferate, the real edge is in developments on the backend. The four categories that would determine which venue wins are liquidity, new markets velocity, pricing infrastructure and licensing/regulatory positioning.</p>
+          <p>The entire RWA perpetuals market is still 30&ndash;60x behind crypto perps and CME equity futures, with room to capture that flow. On-chain will continue to drive innovation, liquidity and price discovery while CEXs and brokerages serve as distribution.</p>
+        </div>
+
+        <p>Since March, RWA share of total daily perp volume on-chain has grown steadily, hitting over 37% at peak &mdash; a 100% growth in just 4 months. This is significant growth given the market did not exist just 6 months ago. Our past article covered the move towards the "perpification" of everything, deep diving into the mechanisms of different platforms and what the future could hold for RWA perps both on and off-chain. Since then, markets have presented stress tests and introduced new mechanisms with better underlying infrastructure being built. This article looks into the current state of the market and where we believe the real edge lies going forward.</p>
+
+        <h2>State of the Market</h2>
+
+        <p>On-chain perps venues like TradeXYZ (Hyperliquid HIP-3) led the charge for adoption of these assets initially, but as demand grew CEXs are also stepping in. Binance has partnered with traditional brokerage infrastructure to offer 24/5 trading of US tokenized equities, while Coinbase introduced pre-IPO perpetuals for trending private companies such as SpaceX, OpenAI and Anthropic.</p>
+
+        <p>Looking at the data, cumulative volume and OI on CEXs remain low relative to TradeXYZ, with a much higher churn rate that suggests less sticky users. Listing velocity and incentives also deeply favour on-chain. Deployers capture a direct, transparent reward for being first to list a market, whereas on CEXs the listing process is slower and opaque, with no external incentives to move quickly.</p>
+
+        <img src="images/rwa-perps-by-venue.png" alt="RWA perpetuals by venue: open interest, volume and RWA share" />
+        <p class="caption">RWA perpetuals by venue (Source: Artemis)</p>
+
+        <p>The asset categories that see the most traction are commodities and stocks, with the latter increasing its market share rapidly in the past 3 months. This could be attributed to the rise of traders wanting access to different regional markets, which are often constrained by the jurisdiction they are in for traditional brokerages. On-chain alternatives bypass these and provide access to the same price appreciation that traders are looking for.</p>
+
+        <img src="images/hip3-volume-by-category.png" alt="Hyperliquid HIP-3 volume by category" />
+        <p class="caption">HIP-3 volume by category (Source: ASXN Hyperliquid Analytics)</p>
+
+        <p>The two main benefits for RWA perps are price exposure to underlying assets through weekends and price discovery for pre-IPO equities. Weekend availability allows traders to express their position ahead of usual opening hours, frontrunning other traders on traditional exchanges. Price discovery is essentially a synthetic book on market demand, but has proven to be quite accurate in predicting IPO prices and is the only vehicle that gives easy exposure to these private companies.</p>
+
+        <p>The table below shows a breakdown of the different models we see today. Orderbook based designs are much more common but liquidity pool models are slowly growing. It allows easier bootstrapping of liquidity for new long-tail markets and can attract non-traders who are seeking yield opportunities.</p>
+
+        <img src="images/rwa-perps-venue-comparison.png" alt="RWA perpetuals venue comparison across structure, pricing and fees" />
+        <p class="caption">RWA perpetuals venue comparison</p>
+
+        <p>Key risks for on-chain platforms include centralization and the 24/7 market risk. Pricing mechanisms differ significantly from venue to venue and users might face deployer oracle centralization, especially for weekend internal pricing. Traders might end up paying higher fees as weekend volatility risk is pushed into dynamic funding rates and market maker spreads.</p>
+
+        <h2>On-chain as the Frontier</h2>
+
+        <p>Venues are usually ranked on what the frontend surfaces &mdash; distribution and volume. We would argue the durable edge sits in the backend. Incentives can buy initial distribution, but liquidity migrates to wherever execution is most efficient and will concentrate where the pricing and mechanism is the strongest. Traditional venues are now competing for the same flow with CME going 24/7, Nasdaq and NYSE extending to near-round-the-clock sessions, pointing towards the trajectory of all-in-one platforms where equities, commodities, FX and crypto trade under one roof. Thus, the differentiators for venues will be distilled down into liquidity, markets, pricing infrastructure as well as licensing or regulatory positioning. Solving these problems requires new plug-ins, or incumbent infrastructure adapting to the rising needs &mdash; which on-chain is primed to solve.</p>
+
+        <ul>
+          <li><strong style="color: var(--text-bright);">Liquidity:</strong> This is a key factor in determining whether new markets can scale effectively and offer a credible market for users. On-chain venues hold a structural advantage in bootstrapping liquidity for new markets as trading can be routed against LP pools rather than waiting for market makers to show up. GMTrade does this with per-market vaults, where users deposit into a pool tied to a single pair and become the direct counterparty to its traders, earning yield for underwriting that specific market. We believe that there will be a rise of decentralized market-making protocols that let users deploy their own customized strategies, enabling better execution for the long tail of markets.</li>
+          <li><strong style="color: var(--text-bright);">Markets:</strong> Traditional venues lag badly on speed and ease of listing. Bringing a new market live is pretty complex, particularly for assets like pre-IPO equities which have no existing liquid, tradable reference and no proper frameworks for representation. On-chain is better positioned here as regulatory concerns can be sidestepped, which compresses the time to launch effectively. Hyperliquid's HIP-3 gates this permissionless process via capital to filter for quality listings as deployers have to stake 500K HYPE to launch a market. In return, they earn a 50% share of the fees which incentivizes speed and answering to actual user demand. Launch by Kinetiq then democratizes access to that system, letting users with smaller stakes participate in deployments and earn a share of the fees the markets generate.</li>
+          <li><strong style="color: var(--text-bright);">Pricing infrastructure:</strong> As these markets expand, demand for equity pricing and 24/7 data infrastructure will increase as well. It is crucial to understand pricing mechanisms and build trust in this area as it determines how each trade is settled on different venues. Pricing could be incredibly volatile and susceptible to real life events that do not reflect quickly enough on-chain. For example, Ventuals' SpaceX (SPCX) market crashed 45% in 30 minutes, liquidating 405 users across 1,393 positions for $1.51m, caused by an off-chain private market data provider which mishandled SpaceX's 5-for-1 stock split. This could cause huge dents in user confidence and hence, better and trusted infrastructure will always be needed. The major on-chain oracle providers have expanded coverage with Chainlink extending data streams to tokenized US stocks, and Pyth with purpose-built 24/7 indices for equities, metals and oil. Entirely new asset classes like compute and GPU/CPU pricing are coming live, with expected strong demand. Ornn's Compute Price Index (OCPI) is partnered with the Intercontinental Exchange (ICE), offering pricing on AI hardware such as H100 chips. Pending regulatory approval, the index could eventually be offered on the NYSE, which would bring the market for compute futures to the masses.</li>
+          <li><strong style="color: var(--text-bright);">Licensing / regulatory positioning:</strong> Since May, the US has opened an onshoring path for perpetuals. The CFTC issued a policy framework covering perpetual contract listings including 24/7 trading, clearing and settlement. They also approved Kalshi's BTCPERP as the first US-listed perpetual future, setting the precedent for submissions to follow. Any protocol that is able to position themselves at the forefront of this movement &mdash; working on licensing and compliant access to on-chain markets &mdash; will stand to gain the most when regulations eventually become clear.</li>
+        </ul>
+
+        <h2>Where Does the Real Edge Lie?</h2>
+
+        <p>The market size for RWA perpetuals is still 30&ndash;60x behind crypto perpetuals and CME equity futures. As demand for trading alternative assets grows, we believe that RWA perpetuals will capture a large part of this flow.</p>
+
+        <img src="images/rwa-perps-market-sizing.png" alt="Market sizing for RWA perpetuals against crypto perps, gold and CME equity index" />
+        <p class="caption">Market sizing for RWA perpetuals &mdash; average daily traded volume (Sources: CoinGecko, CME Group, World Gold Council)</p>
+
+        <p>We believe that on-chain will remain the experimental ground fostering product innovation, enhancing liquidity and leading price discovery, while centralized exchanges and traditional brokerages remain key distribution channels. This means that there are a lot of winners that would emerge from this category, and we are excited to back teams building in this sector.</p>
+
+      </div>
+    </article>
+
+    <footer>
+      <span>&copy; 2026</span>
+    </footer>
+
+  </div>
+
+  <script>
+    var fades = document.querySelectorAll('.fade');
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.05 });
+    fades.forEach(function(el) { obs.observe(el); });
+  </script>
+</body>
+</html>

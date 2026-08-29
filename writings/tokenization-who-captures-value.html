@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tokenization: Who Actually Captures Value? — Xinyi Lim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Newsreader:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #111;
+      --text: #999;
+      --text-bright: #e5e5e5;
+      --text-dim: #555;
+      --serif: 'Newsreader', Georgia, serif;
+      --sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: #333; color: var(--text-bright); }
+
+    a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--text-dim);
+      transition: color .2s, border-color .2s;
+    }
+    a:hover { color: var(--text-bright); border-color: var(--text-bright); }
+
+    .page {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      padding: 48px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-bright);
+      letter-spacing: -0.01em;
+      border: none;
+    }
+    .name:hover { color: #fff; }
+    .back {
+      font-size: 13px;
+      color: var(--text-dim);
+      border: none;
+    }
+    .back:hover { color: var(--text); }
+
+    .article {
+      padding: 80px 0 64px;
+    }
+    .article-title {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(28px, 4.5vw, 36px);
+      color: var(--text-bright);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .article-meta {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 48px;
+    }
+
+    .article-body h2 {
+      font-family: var(--sans);
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text-bright);
+      margin: 48px 0 16px;
+    }
+    .article-body h3 {
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-bright);
+      margin: 32px 0 12px;
+    }
+    .article-body p {
+      font-size: 15px;
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .article-body ul {
+      margin: 0 0 20px 20px;
+      font-size: 15px;
+      line-height: 1.85;
+    }
+    .article-body li {
+      margin-bottom: 12px;
+    }
+    .article-body img {
+      width: 100%;
+      border-radius: 6px;
+      margin: 32px 0;
+      border: 1px solid #1a1a1a;
+    }
+    .article-body .caption {
+      font-size: 12px;
+      color: var(--text-dim);
+      text-align: center;
+      margin: -20px 0 32px;
+    }
+    .article-body .takeaway {
+      border-left: 2px solid #2a2a2a;
+      padding: 16px 0 16px 20px;
+      margin: 32px 0;
+    }
+    .article-body .takeaway p {
+      margin-bottom: 8px;
+    }
+    .article-body .takeaway p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer {
+      padding: 48px 0;
+      font-size: 12px;
+      color: var(--text-dim);
+      border-top: 1px solid #1a1a1a;
+    }
+
+    .fade {
+      opacity: 0; transform: translateY(12px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade.in { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 520px) {
+      nav { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <nav>
+      <a href="../index.html" class="name">Xinyi Lim</a>
+      <a href="../index.html#writings" class="back">&larr; Back to writings</a>
+    </nav>
+
+    <article class="article fade">
+      <h1 class="article-title">Tokenization: Who Actually Captures Value?</h1>
+      <div class="article-meta">June 2026</div>
+
+      <div class="article-body">
+
+        <div class="takeaway">
+          <p><strong style="color: var(--text-bright);">Key Takeaways:</strong></p>
+          <p>Over $31B of tokenized assets sit on-chain, but only 10% sits in DeFi as active TVL. Most assets are simply minted and held in wallets for the long term, with little value flowing downstream towards protocols.</p>
+          <p>The growth of tokenized assets is a mix of new capital and crypto-native capital rotating to safer yields. Major stablecoins have grown to have significant exposure to T-bills in backing, while new wallet activity shows that tokenization is pulling in net new users.</p>
+          <p>Strong value can be unlocked for crypto infrastructure that can solve for gaps in risk, pricing, settlement or building an entirely vertically integrated stack from scratch.</p>
+          <p>94% of tokenized assets remain USD-denominated. There is huge upside for growth in emerging market sovereign bonds and regional private credit in MENA/APAC.</p>
+        </div>
+
+        <p>The tokenization wave has been accumulating over the past few years, accelerating in recent months as institutions commit serious capital on-chain. The premise of utilizing on-chain infrastructure is multifold &mdash; faster settlement, enhanced liquidity, 24/7 cross-border market access, composability, democratized access and transparency. As flows continue to increase, a key question emerges: who actually captures the value?</p>
+
+        <p>So far, the primary beneficiaries seem to be institutions rather than crypto-native companies that have been laying down the foundation. This report explores where value flows in the tokenization stack, the gaps in the market and how crypto infrastructure can step in to retain value.</p>
+
+        <h2>The State of Tokenized Assets</h2>
+
+        <p>The full on-chain tokenization stack consists of many players, each with their own role to play. Institutions operate across asset issuer and tokenization platforms, while lending protocols, risk curators and exchanges represent the crypto-native layer enabling broader distribution and utility.</p>
+
+        <img src="images/tokenization-stack.png" alt="How real-world assets reach on-chain markets" />
+        <p class="caption">The tokenization stack: from origination to distribution</p>
+
+        <p>In practice, most of the value remains siloed at the tokenized platform level. Some tokenized assets carry issuance/transfer restrictions, redemption delays or KYC requirements that are fundamentally incompatible with permissionless DeFi, limiting how far down the stack they can actually travel.</p>
+
+        <p>The total distributed value of tokenized assets on-chain (excluding stablecoins) has grown to over $31B, marking a 50% increase YTD. This growth has been driven by institutional capital entering the space, digitizing US Treasuries and private credit mainly.</p>
+
+        <img src="images/tokenized-value-by-category.png" alt="On-chain value of tokenized assets by category" />
+        <p class="caption">On-chain value by asset category (Source: rwa.xyz)</p>
+
+        <p>While the total value of assets has grown significantly, we can see dispersion of holders and movement within asset categories. US treasuries and commodities lead the charge for the number of holders, while private credit and real estate remain slow in adoption. In terms of movement, most assets do not see much on-chain activity either. It is estimated that top US treasuries like BUIDL, WTGXX and BENJI have less than 30 transfers per month. This can be attributed to regulated access and availability of secondary liquidity affecting composability and utility within DeFi, which has a direct correlation to the number of holders. It is estimated that only around ~$3b of tokenized assets (10% of total value) sit in DeFi as active TVL, which are mostly in US treasuries and commodities. Nonetheless, this has provided significant value for RWA adjacent protocols beyond origination and issuance platforms &mdash; Sky, Morpho, Aave, Maple Finance and Pendle are generating good volume and revenue from these tokenized assets.</p>
+
+        <p>However, how much of the flows have actually come from net new capital? A large part of growth in US treasuries has been led by major protocols/DAOs diversifying their reserves and allocation strategy as yields in DeFi came down. Sky (formerly MakerDAO) was one of the earliest proponents of this use case, and currently still has over ~$1.5b allocated to tokenized funds such as BlackRock's BUIDL. Ethena recently allocated over $250m to Securitize's AAA CLO fund as part of USDe's backing. We can see the growth of such assets as crypto capital "fleeing to safety", but further analysis covers a greater picture.</p>
+
+        <p>A closer analysis of wallet activity done by Chainalysis showed that over ~400,000 RWA-holding addresses received their first RWA token within one week of wallet creation. These wallets have no prior crypto history, which is strong evidence of new capital entering. Meanwhile legacy wallets show greater participation in commodities and stocks, having had prior activity on-chain.</p>
+
+        <h2>Infrastructure Gaps in the Market</h2>
+
+        <p>The core value proposition of bringing assets on-chain has always been straightforward: programmable settlement, composable collateral, and continuous secondary markets. Asset classes that would benefit most from this include less liquid sectors like private credit and real estate. However, liquidity is often inversely correlated &mdash; the ones that stand to benefit the most have the least.</p>
+
+        <p>The problem of secondary liquidity can be distilled down into a few structural issues within the space: lack of proper pricing infrastructure, slow settlement of underlying assets, and KYC/accreditation regulations. All these culminate in low attractiveness and feasibility for tokenized assets within DeFi. As a result, there has been an emergence of potential solutions to the liquidity problem:</p>
+
+        <ul>
+          <li><strong style="color: var(--text-bright);">Stablecoins as a collateralization layer:</strong> Enabling tokenized assets as collateral allows users to tap into yield while achieving deeper liquidity on-chain. This is essentially a wrapper mechanism, which has allowed less liquid assets like private credit to grow to a 64.3% DeFi utilization rate according to Pantera Capital's State of Tokenization report. Maple Finance has been very successful at this, with syrupUSDC and syrupUSDT garnering over $3.6b in TVL. However, exposure risk is high as users do not have control over allocation of assets and transparency/proof of reserves are subject to platform disclosures. Instances of defaults are non-zero and users will bear the brunt of any first losses.</li>
+          <li><strong style="color: var(--text-bright);">Improving pricing/oracle infrastructure:</strong> Private credit and real estate assets rely on periodic NAV updates which are daily at best, causing spreads to be wide as market makers cannot hedge risks efficiently enough to quote tightly on meaningful liquidity. This affects the LTV threshold for assets, which significantly eats into yields when applying looping strategies. Third party curators with expertise in allocation and risk management usually step in for lending platforms like Morpho and Euler, allowing spreads to become closer. Oracle providers like Pyth and Redstone are stepping in to fill this gap by serving a new 24/7 tokenized stocks and commodities market and verifiable real-time signals for pricing tokenized assets. This combined with proper asset risk scoring by third party agencies like Credora will significantly boost trust and asset composability, allowing market makers to price assets better and improve spreads on the underlying.</li>
+          <li><strong style="color: var(--text-bright);">Introducing new redemption mechanisms:</strong> Instant settlement is one of the key benefits that on-chain was supposed to bring. In reality, on-chain liquidity is insufficient for scale while OTC markets remain fragmented and closed off to non-institutions. Tokenized US treasuries that offer secondary markets such as Ondo's USDY see an average slippage of 0.2&ndash;0.3% even on just a $1,000 swap, meaning that users will still have to default to T+1/2 settlement for a proper exit. Symbiotic is solving this by building Liquid Lane &mdash; a shared vault infrastructure where market makers compete through an RFQ layer to price the redemption discount. This provides faster execution while reducing spreads on the assets. The vault infrastructure also allows for capital to be deployed in lending pool markets, bringing in additional streams of yields for LPs.</li>
+          <li><strong style="color: var(--text-bright);">Vertical integration of the stack in one platform:</strong> Most tokenized asset issuers depend on external NAV administrators, third-party oracles, and separate trading venues to price and move their assets. Figure is the exact opposite of this as it controls all three layers in-house: origination (over $21B in HELOCs originated on Provenance Blockchain), secondary price discovery (Democratized Prime, a Dutch auction marketplace), and a native settlement currency (YLDS, the first SEC-registered yield-bearing stablecoin). It has an edge in pricing due to first-party data on borrower creditworthiness, LTV ratios and delinquency rates. Figure is now extending this model through Forge &mdash; opening the origination-to-settlement pipeline to underserved asset classes such as real estate equity, auto loans and trade financing, which could lead to a boom in new markets.</li>
+        </ul>
+
+        <h2>The Next Big Opportunity</h2>
+
+        <p>Analyzing the current AUM of tokenized assets on-chain vs. yield filtered by asset category shows big opportunity in certain sectors. The chart below shows demand across three different tiers of yield profile:</p>
+
+        <ul>
+          <li><strong style="color: var(--text-bright);">Credit risk premium (&gt;7%):</strong> Private credit dominates with yield that remains scalable alongside AUM through having a vertically integrated stack (Figure HELOC) or leveraging in DeFi (syrupUSDC/USDT).</li>
+          <li><strong style="color: var(--text-bright);">Risk-free rates (3&ndash;4%):</strong> Highly commoditized yields, mainly competing on distribution and composability.</li>
+          <li><strong style="color: var(--text-bright);">No yield (0%):</strong> Assets with strong demand on their own, where on-chain provides access to price exposure.</li>
+        </ul>
+
+        <img src="images/aum-vs-yield.png" alt="AUM vs. yield by tokenized asset category" />
+        <p class="caption">AUM vs. yield, by asset category (Source: rwa.xyz)</p>
+
+        <p>We believe the next big opportunity lies in two big categories: non-USD denominated private credit/bonds, and enabling on-chain yield on commodities/equities.</p>
+
+        <p>Over 94% of tokenized assets are USD-denominated and even within the remaining 6%, over three-quarters sit in Spiko's Euro T-bills fund. This is a big contrast to traditional fixed income, where non-USD sovereign bonds account for over 45% of the global market. Emerging market sovereign debt is where the yield case is strongest &mdash; Brazilian real-denominated government bonds yield ~10%, Turkish lira bonds ~15%. While there is depreciation risk, instruments such as non-deliverable forwards (NDFs) allow for hedging. Regional private credit is also heating up, especially in the MENA and APAC region, and we expect to see much more growth from there.</p>
+
+        <p>Being on-chain transforms traditionally passive assets into productive collateral. Tokenized commodities have proven demand, generating over $4.8B on-chain with $90.7B in Q1 2026. Tokenized equities are following the same trajectory with the market growing to over $1B and 185k holders in a year. An opportunity lies for any protocol that can layer yield onto these assets at scale, through usage as collateral for stablecoins, lending markets or even options. The reward is substantial as distribution is effectively pre-built through exchanges already listing them, and introducing the stickiness of yield-bearing positions versus bare price exposure means the protocol that cracks this first can capture long-term holders &mdash; which will accrue strong value in the long run.</p>
+
+        <h2>How We See the Market</h2>
+
+        <p>Overall, tokenization is good for crypto by bringing real assets on-chain, as long as there is actual liquidity to back it. While institutions and market makers play a large part and capture most value today, the value will gradually flow towards crypto-native platforms that unlock better pricing, yields and utility. Much of this infrastructure is already being built, and we are excited to see progress in the coming months.</p>
+
+      </div>
+    </article>
+
+    <footer>
+      <span>&copy; 2026</span>
+    </footer>
+
+  </div>
+
+  <script>
+    var fades = document.querySelectorAll('.fade');
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.05 });
+    fades.forEach(function(el) { obs.observe(el); });
+  </script>
+</body>
+</html>
