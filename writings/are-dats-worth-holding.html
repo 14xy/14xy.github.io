@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Are DATs Worth Holding? — Xinyi Lim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Newsreader:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #111;
+      --text: #999;
+      --text-bright: #e5e5e5;
+      --text-dim: #555;
+      --serif: 'Newsreader', Georgia, serif;
+      --sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: #333; color: var(--text-bright); }
+
+    a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--text-dim);
+      transition: color .2s, border-color .2s;
+    }
+    a:hover { color: var(--text-bright); border-color: var(--text-bright); }
+
+    .page {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      padding: 48px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-bright);
+      letter-spacing: -0.01em;
+      border: none;
+    }
+    .name:hover { color: #fff; }
+    .back {
+      font-size: 13px;
+      color: var(--text-dim);
+      border: none;
+    }
+    .back:hover { color: var(--text); }
+
+    .article {
+      padding: 80px 0 64px;
+    }
+    .article-title {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(28px, 4.5vw, 36px);
+      color: var(--text-bright);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .article-meta {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 48px;
+    }
+
+    .article-body h2 {
+      font-family: var(--sans);
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text-bright);
+      margin: 48px 0 16px;
+    }
+    .article-body h3 {
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-bright);
+      margin: 32px 0 12px;
+    }
+    .article-body p {
+      font-size: 15px;
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .article-body ul {
+      margin: 0 0 20px 20px;
+      font-size: 15px;
+      line-height: 1.85;
+    }
+    .article-body li {
+      margin-bottom: 12px;
+    }
+    .article-body img {
+      width: 100%;
+      border-radius: 6px;
+      margin: 32px 0;
+      border: 1px solid #1a1a1a;
+    }
+    .article-body .caption {
+      font-size: 12px;
+      color: var(--text-dim);
+      text-align: center;
+      margin: -20px 0 32px;
+    }
+    .article-body .takeaway {
+      border-left: 2px solid #2a2a2a;
+      padding: 16px 0 16px 20px;
+      margin: 32px 0;
+    }
+    .article-body .takeaway p {
+      margin-bottom: 8px;
+    }
+    .article-body .takeaway p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer {
+      padding: 48px 0;
+      font-size: 12px;
+      color: var(--text-dim);
+      border-top: 1px solid #1a1a1a;
+    }
+
+    .fade {
+      opacity: 0; transform: translateY(12px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade.in { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 520px) {
+      nav { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <nav>
+      <a href="../index.html" class="name">Xinyi Lim</a>
+      <a href="../index.html#writings" class="back">&larr; Back to writings</a>
+    </nav>
+
+    <article class="article fade">
+      <h1 class="article-title">Are DATs Worth Holding?</h1>
+      <div class="article-meta">October 2026</div>
+
+      <div class="article-body">
+
+        <div class="takeaway">
+          <p><strong style="color: var(--text-bright);">Key Takeaways:</strong></p>
+          <p>Of the top 20 DATs ranked by AUM, only 4 are trading at an mNAV above 1. This reflects the current state of the market, where the access premium is no longer valued as highly as before.</p>
+          <p>Since inception, the top DATs have mostly underperformed simply holding the asset. Among those that outperformed, the excess returns are minimal in comparison to the risk that holders take.</p>
+          <p>On a shorter time horizon (&lt;3 months), DATs can outperform their underlying asset by 15&ndash;40% given that mNAVs are at lows and the underlying asset price rises &mdash; essentially a catch-up bet if conditions align.</p>
+          <p>Moving forward, DATs will be assessed more on their operators and capital structures, as that differentiates the value of companies beyond just the assets accumulated.</p>
+        </div>
+
+        <p>Treasury management is not a new concept. It has mainly revolved around fiat assets and bonds in traditional finance, and treasuries are usually used as capital vehicles for illiquid or private asset classes such as real estate and private equity or credit.</p>
+
+        <p>Digital Asset Treasuries (DATs) have been around for several years, led by Strategy making its first Bitcoin purchase back in August 2020. What started out as a capital diversification strategy quickly became a full allocation into BTC, with the company <a href="https://finance.yahoo.com/news/microstrategy-becomes-first-listed-company-113746283.html?guccounter=1" target="_blank" rel="noopener">formalizing its status as a corporate Bitcoin treasury</a> in 2025. Since then, the total value of assets held by crypto treasury companies has <a href="https://www.coingecko.com/en/charts/treasuries" target="_blank" rel="noopener">surpassed $180B</a>, marking a 70% YoY increase on average since 2020. Most growth occurred in 2025, when small and microcap companies pivoted into holding digital assets as a strategy for higher returns, creating a mini bubble back then.</p>
+
+        <p>While many companies include digital assets on their balance sheets today, this article focuses on companies whose core business model is the accumulation and management of digital assets. We look into the performance of crypto treasury companies against their underlying assets, assessing different models and highlighting the risks of different companies.</p>
+
+        <h2>What are DATs?</h2>
+
+        <p>DATs can be defined as any publicly listed company utilizing the accumulation of digital assets on its balance sheet as a core business model. Unlike ETFs, which are built to track the underlying asset closely, DATs are more of a vehicle for speculating on sentiment towards the asset. DATs&rsquo; performance also depends on a variety of factors, such as how the company chooses to raise financing, the timing of deploying capital and how it manages exposure &mdash; which explains the presence of different vehicles for the same underlying asset. The table below compares the mechanisms of a DAT vs. an ETF.</p>
+
+        <img src="images/dats-vs-etfs.png" alt="Comparison of DATs vs spot ETFs across ownership, NAV tracking, fees, transparency, custody, strategy, leverage and yield" />
+        <p class="caption">DATs vs. ETFs</p>
+
+        <p>Market to Net Asset Value (mNAV) is a measure of a company&rsquo;s market capitalization over the actual value of its crypto holdings. When mNAV is above 1, the company trades at a premium to its crypto holdings, which reflects positive investor sentiment towards the company or underlying asset, and vice versa. The data below shows that the majority of DATs trade below the value of their holdings, pointing to slightly negative sentiment towards holding companies. Note that mNAV numbers do not take into account any debt or preferred structures.</p>
+
+        <img src="images/dat-mnav-ranking.png" alt="Top 20 crypto treasury companies ranked by mNAV" />
+        <p class="caption">Top 20 crypto treasury companies by mNAV (Source: Blockworks, as of 21 Sept 2026)</p>
+
+        <p>Companies holding the same underlying asset can still have wildly differing premiums. This is due to differences in their strategies for accumulation and issuing new shares. Bit Digital and Strive both carry out more aggressive reserve accumulation and actively run At-the-Market (ATM) offerings to keep the reflexive loop going, while companies trading at extremely high discounts to NAV are much more passive. This explains the wide dispersion in mNAV and highlights the need to consider external factors before investing in one.</p>
+
+        <h2>The Reflexive Loop</h2>
+
+        <p>The general goal of DATs is to generate higher returns than the underlying asset by growing the <strong style="color: var(--text-bright);">number of tokens per share</strong>, increasing each shareholder&rsquo;s stake. There are several strategies that allow companies to do so:</p>
+
+        <ul>
+          <li><strong style="color: var(--text-bright);">Issuing new shares ATM:</strong> one of the most common methods. By selling shares at a premium to raise cash, the company can use the proceeds to buy more tokens and directly increase shareholder value. This assumes the company will always be able to raise at a premium, and it usually only works in an uptrend (when mNAV &gt; 1).</li>
+          <li><strong style="color: var(--text-bright);">Convertible debt:</strong> frequently used by Strategy (MSTR). The conversion premium is usually priced 35&ndash;55% above spot, and if the notes successfully convert at that price, MSTR has effectively received a 0% loan with no debt obligations. This adds to the accretive loop, as the company can continue raising money against its current collateral.</li>
+          <li><strong style="color: var(--text-bright);">Increasing alternative revenue streams:</strong> through staking, mining or other business lines. SharpLink recently announced a <a href="https://finance.yahoo.com/markets/crypto/articles/sharplink-deploys-200m-ethereum-lido-011500282.html" target="_blank" rel="noopener">$200m allocation into stETH</a> and a $125m onchain yield fund in collaboration with Galaxy. Cypherpunk Technologies (CYPH) became the largest mining fleet for ZEC, receiving <a href="https://www.nasdaq.com/press-release/cypherpunk-technologies-launches-worlds-largest-zcash-mining-fleet-2026-08-18" target="_blank" rel="noopener">over 18% of the network&rsquo;s emissions</a>. All of these generate more cash flow for the company and more tokens per share for shareholders without reducing the principal.</li>
+        </ul>
+
+        <p>These strategies aim to be accretive to shareholders, but ultimately, overall performance still relies heavily on the underlying token. Looking at the top companies, it is clear that most DAT premiums fall over time, and it is hard to see them recover as demand for shares does not outweigh the underlying gains in price.</p>
+
+        <img src="images/dat-premium-over-time.png" alt="DAT mNAV premium over time for MSTR, BMNR, SBET, BTBT, PURR and CYPH" />
+        <p class="caption">The DAT premium over time (Source: CoinGecko, Blockworks, Yahoo Finance, stockanalysis.com)</p>
+
+        <p>Most companies peak at the initial offering, given that buzz is always highest at that stage. Strategy peaked in November 2024 as BTC began its run-up to ATH, when demand for speculation and leverage was at its highest. An exception is Bit Digital, which has managed to maintain a significant premium to NAV through growing non-crypto revenue streams and well-timed equity financing. <a href="https://www.investing.com/news/transcripts/earnings-call-transcript-bit-digital-q2-2026-revenue-beats-loss-widens-93CH-4858648" target="_blank" rel="noopener">Over 89% of its Q2 revenue</a> came from its cloud infrastructure business (WhiteFiber), which helped maintain share value despite a fall in the value of its digital asset holdings over the same period.</p>
+
+        <p>Since inception, most companies have managed to increase their tokens per share, which theoretically increases shareholder value. Factoring in token prices tells a different story, as companies like BMNR and BTBT faced significant drawdowns on ETH depending on their entry timing. Overall, NAV per share has increased by up to 400% for DATs purely focused on accumulating digital assets, which signals that the business model does work.</p>
+
+        <img src="images/dat-nav-per-share-drivers.png" alt="Breakdown of NAV per share growth into tokens per share and token price, alongside share price performance" />
+        <p class="caption">What drove NAV per share (Source: CoinGecko, Blockworks, Yahoo Finance, stockanalysis.com, as of 18 Sept 2026)</p>
+
+        <p>However, looking at token vs. share prices since inception, investors have generally been better off holding the underlying token. Even where shares have fared better, the outperformance is minimal &mdash; to the point where the added risk of holding a DAT may not make sense. This also depends on the time horizon over which the shares are held.</p>
+
+        <p>Since July, we have seen strong outperformance of shares by 15&ndash;40% against tokens, with mNAVs rising from lows of 0.5&ndash;0.8x to 0.7&ndash;1.0x. In particular, PURR and CYPH rose 31% and 38% more than their underlying tokens over this three-month period. Tokens per share did not increase much during this time, signifying that share prices are still ultimately sentiment-driven, with price appreciation arriving as the outlook for crypto markets turned more positive. Over a longer horizon beyond three months, the token remains the better bet for investors.</p>
+
+        <h2>Factors of Consideration</h2>
+
+        <p>The question remains: should you buy a DAT? While DATs have historically been seen as a levered bet for investors to play catch-up, we would argue that the market around them is a lot more mature now, and there are many other factors to consider when making the choice.</p>
+
+        <h3>Availability of the underlying asset</h3>
+
+        <p>DATs emerged as a vehicle for providing digital asset exposure to institutions that were previously highly regulated, so the mNAV premium was seen as an access premium for institutions. However, with the SEC proposing to <a href="https://www.galaxy.com/insights/research/digital-asset-etfs-fast-track-sec-approval" target="_blank" rel="noopener">quicken the listing process</a> for ETFs by over 75%, the access premium has shrunk significantly over the years. Institutional buyers now have far more options across ETFs, regulated private funds and custodian infrastructure that allows for direct deployment &mdash; none of which was possible before.</p>
+
+        <h3>Operating costs and strategies of the company</h3>
+
+        <p>This is a mix of assessing the operating team&rsquo;s ability to diversify revenue and to adjust financing strategy in response to market conditions. For example, Strategy&rsquo;s capital structure prioritizes debt holders and carries consistent pressure to fulfil dividend obligations. This potentially puts a strain on BTC reserves, as it introduces forced selling that would dilute existing shareholders. Once confidence in the team is affected, it becomes hard to attract new investors, which can initiate a downward spiral in Strategy&rsquo;s mNAV.</p>
+
+        <h2>Overall</h2>
+
+        <p>The DAT market has grown tremendously, and assessing these companies is far more complex now. The earliest entrant had an advantage: available capital for financing was much larger due to the inability to access the underlying asset directly, which allowed Strategy to compound through persistent premiums to NAV. However, that edge has disappeared for most of the companies that pivoted in 2025.</p>
+
+        <p>The reflexive loop means that once mNAV drops below 1, it is hard for companies to reverse it. Companies that rely on convertible or collateralised financing carry higher risks, as the shares become priced by equity market sentiment and the company&rsquo;s financing terms more than by the underlying asset. As a result, only a minority of companies have delivered higher returns than simply holding the asset directly.</p>
+
+        <p>Moving forward, we expect to see more new entrants as crypto market sentiment improves. However, companies will increasingly be assessed on the boards and capital structures supporting them rather than the amount of assets accumulated.</p>
+
+      </div>
+    </article>
+
+    <footer>
+      <span>&copy; 2026</span>
+    </footer>
+
+  </div>
+
+  <script>
+    var fades = document.querySelectorAll('.fade');
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.05 });
+    fades.forEach(function(el) { obs.observe(el); });
+  </script>
+</body>
+</html>
